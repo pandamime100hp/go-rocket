@@ -23,8 +23,6 @@ function useGetData(url) {
 
         callGetData()
     }, [url])
-    
-    console.log(error)
 
     return { data, loading, error }
 }
