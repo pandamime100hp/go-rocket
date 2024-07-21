@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react'
 // UTILITY
 import getData from '../services/data/getData'
 
-export default function useGetData (url) {
-    const [data, setData] = useState(null)
+export default function useGetData(url) {
+    const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
