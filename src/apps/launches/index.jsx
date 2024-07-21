@@ -1,20 +1,21 @@
 // HOOKS
-import useGetData from '../../hooks/useGetData'
+import useGetData from '../../utility/hooks/useGetData'
 
 function Launches() {
     const url = import.meta.env.VITE_APP_BASE_URL
-    const version = import.meta.env.VITE_APP_BASE_VERSION
-    const endpoint = `${url}/${version}/launches`
+    const endpoint = `${url}/launches`
 
     const { launches, loading, error } = useGetData(endpoint)
 
     if (loading) return <p>Loading...</p>
     if (error) return <p>{error.stack}</p>
 
+    console.log(launches)
+
     return (
-        <body>
-            {launches.map(launch => <p key={launch.id}>{launch.name}</p>)}
-        </body>
+        <>
+            {!loading && launches?.map(launch => <p key={launch.id}>{launch.name}</p>)}
+        </>
     )
 }
 
