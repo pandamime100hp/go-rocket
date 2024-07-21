@@ -2,10 +2,10 @@
 import { useState, useEffect } from 'react'
 
 // UTILITY
-import getData from '../utility/getData'
+import getData from '../services/data/getData'
 
-function useGetData(url) {
-    const [data, setData] = useState(null)
+export default function useGetData(url) {
+    const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
@@ -13,7 +13,7 @@ function useGetData(url) {
         const callGetData = async () => {
             try{
                 const response = await getData(url)
-                setData(response.data)
+                setData(response)
             } catch(err) {
                 setError(err)
             } finally {
@@ -23,10 +23,6 @@ function useGetData(url) {
 
         callGetData()
     }, [url])
-    
-    console.log(error)
 
     return { data, loading, error }
 }
-
-export default useGetData
