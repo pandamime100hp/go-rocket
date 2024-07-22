@@ -1,5 +1,5 @@
 // COMPONENTS
-import CardGallery from '../../components/CardGallery'
+import CardGallery from '../../components/CardGallery/CardGallery'
 import LaunchCard from './components/LaunchCard/LaunchCard'
 
 // HOOKS
