@@ -1,6 +1,6 @@
 // COMPONENTS
-import CardGallery from '../../components/CardGallery/CardGallery'
-import LaunchCard from './components/LaunchCard/LaunchCard'
+import CardGallery from '../../components/CardGallery'
+import LaunchCard from './components/LaunchCard'
 
 // HOOKS
 import useGetData from '../../utility/hooks/useGetData'

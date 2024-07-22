@@ -1,5 +1,5 @@
 // CSS
-import './CardGallery.css'
+import './index.css'
 
 export default function CardGallery({data, ItemComponent}) {
     if (!data) return null

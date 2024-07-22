@@ -1,5 +1,5 @@
 // CSS
-import './LaunchCard.css'
+import './index.css'
 
 export default function LaunchCard({ item }) {
     if (!item) return null
