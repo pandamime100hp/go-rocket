@@ -1,3 +1,7 @@
+// COMPONENTS
+import CardGallery from '../../components/CardGallery'
+import LaunchCard from './components/LaunchCard'
+
 // HOOKS
 import useGetData from '../../utility/hooks/useGetData'
 
@@ -12,7 +16,7 @@ function Launches() {
 
     return (
         <>
-            {launches?.map(launch => <p key={launch.id}>{launch.name}</p>)}
+            <CardGallery data={launches} ItemComponent={LaunchCard} />
         </>
     )
 }
