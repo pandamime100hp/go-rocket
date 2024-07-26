@@ -1,0 +1,17 @@
+.overlay__content {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 1; /* Ensure it appears on top of other elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.overlay__video {
+    width: 720px;
+    height: 100%;
+    z-index: 2;
+}
