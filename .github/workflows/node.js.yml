@@ -57,7 +57,7 @@ jobs:
         env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_URL_HOOK }}
         run: |
-          curl $deploy_url || { echo 'Deployment failed'; exit 1; }
+          curl $deploy_url
 
       - name: Deployment successful
         if: success()
