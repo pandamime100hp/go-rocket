@@ -89,4 +89,4 @@ jobs:
       env:
         deploy_url: ${{ secrets.RENDER_DEPLOY_URL_HOOK }}
       run: |
-        curl -X POST -H "Content-Type: application/json" ${{ secrets.RENDER_DEPLOY_URL_HOOK }}
+        curl -X POST -H "Content-Type: application/json" "$deploy_url"
