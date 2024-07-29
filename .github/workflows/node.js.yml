@@ -47,11 +47,19 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Deploy
-      env:
-        deploy_url: ${{ secrets.RENDER_DEPLOY_URL_HOOK }}
-      run: |
-        set -e
-        curl -X POST $deploy_url
+      - name: Print debug information
+        run: echo "Attempting to deploy..."
+
+      - name: Deploy
+        env:
+          deploy_url: ${{ secrets.RENDER_DEPLOY_URL_HOOK }}
+        run: |
+          set -e
+          curl -X POST $deploy_url || { echo 'Deployment failed'; exit 1; }
+
+      - name: Deployment successful
+        if: success()
+        run: echo "Deployment was successful!"
