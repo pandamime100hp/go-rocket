@@ -1,3 +1,6 @@
+// PROPTYPES
+import PropTypes from 'prop-types'
+
 // CSS
 import './index.css'
 
@@ -11,4 +14,9 @@ export default function CardGallery({data, ItemComponent}) {
             ))}
         </div>
     )
+}
+
+CardGallery.propTypes = {
+    data: PropTypes.array,
+    ItemComponent: PropTypes.func
 }
