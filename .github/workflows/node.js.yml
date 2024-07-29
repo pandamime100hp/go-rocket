@@ -51,4 +51,5 @@ jobs:
     - name: Deploy
       if: github.ref == 'refs/heads/main'
       run: |
+        set -e
         curl ${{ secrets.RENDER_DEPLOY_URL_HOOK }}
