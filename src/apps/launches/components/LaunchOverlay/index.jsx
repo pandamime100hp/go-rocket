@@ -1,3 +1,6 @@
+// PROPTYPES
+import PropTypes from 'prop-types'
+
 // CSS
 import './index.css'
 
@@ -18,4 +21,9 @@ export default function LaunchOverlay({ item, onClose }) {
             <button onClick={onClose}>Close</button>
         </div>
     )
+}
+
+LaunchOverlay.propTypes = {
+    item: PropTypes.object,
+    onClose: PropTypes.func
 }
