@@ -50,15 +50,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Print debug information
-        run: echo "Attempting to deploy..."
-
       - name: Deploy
         env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_URL_HOOK }}
         run: |
           curl $deploy_url
-
-      - name: Deployment successful
-        if: success()
-        run: echo "Deployment was successful!"
