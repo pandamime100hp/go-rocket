@@ -33,10 +33,25 @@
   }
 }
 
+/* CARD */
 .card {
+  align-items: center;
+  background-color:rgba(237, 237, 237, 0.326);
+  border-radius: 10px;
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  box-shadow: .4rem .4rem .5rem rgb(207, 207, 207);
+  margin: 1rem;
   padding: 2em;
 }
-
-.read-the-docs {
-  color: #888;
+.card button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  box-shadow: .4rem .4rem .5rem rgb(207, 207, 207);
+  color: rgb(0, 0, 0);
+  min-width: 8rem;
+  max-height: 3rem;
+  padding: 0.4rem;
 }

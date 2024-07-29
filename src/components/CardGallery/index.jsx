@@ -2,8 +2,8 @@
 import './index.css'
 
 export default function CardGallery({data, ItemComponent}) {
-    if (!data) return null
-
+    // Generate card gallery based on the passed in ItemComponent such as 
+    // LaunchCard or RocketsCard
     return (
         <div className="card-gallery">
             {data?.map((item) => (
