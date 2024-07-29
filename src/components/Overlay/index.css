@@ -1,4 +1,4 @@
-/* .overlay { 
+.overlay { 
     align-items: center;
     background-color: rgba(0, 0, 0, 0.9); 
     background-size: 40%;
@@ -11,4 +11,4 @@
     top: 10%;
     width: 80%;
     z-index: 1; 
-} */
+}

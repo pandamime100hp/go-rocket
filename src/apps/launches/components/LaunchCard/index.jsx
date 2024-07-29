@@ -2,12 +2,14 @@
 import { useState } from 'react'
 
 // COMPONENTS
+import Overlay from '../../../../components/Overlay'
 import LaunchOverlay from '../LaunchOverlay'
 
 // CSS
 import './index.css'
 
 export default function LaunchCard({ item }) {
+    // Handles overlay visibility
     const [isOverlayVisible, setIsOverlayVisible] = useState(false)
 
     const handleDisplayOverlay = () => {
@@ -26,7 +28,8 @@ export default function LaunchCard({ item }) {
                 <p>{item.date_utc}</p>
                 <button onClick={handleDisplayOverlay}>View Details</button>
             </div>
-            {isOverlayVisible && <LaunchOverlay item={item} onClose={handleHideOverlay} />}
+            {/* Makes sure we are using the Overlay styling which is globally scoped */}
+            {isOverlayVisible && <Overlay item={item} ItemComponent={LaunchOverlay} onClose={handleHideOverlay} />}
         </>
     )
 }
