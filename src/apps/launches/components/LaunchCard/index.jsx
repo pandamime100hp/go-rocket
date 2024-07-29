@@ -1,9 +1,6 @@
 // REACT
 import { useState } from 'react'
 
-// PROPTYPES
-import PropTypes from 'prop-types'
-
 // COMPONENTS
 import Overlay from '../../../../components/Overlay'
 import LaunchOverlay from '../LaunchOverlay'
@@ -35,8 +32,4 @@ export default function LaunchCard({ item }) {
             {isOverlayVisible && <Overlay item={item} ItemComponent={LaunchOverlay} onClose={handleHideOverlay} />}
         </>
     )
-}
-
-LaunchCard.propTypes = {
-    item: PropTypes.object
 }
