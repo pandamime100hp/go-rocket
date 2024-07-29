@@ -30,7 +30,7 @@ jobs:
           cache: 'npm'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Lint
         run: npm run lint
@@ -66,8 +66,7 @@ jobs:
         env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_URL_HOOK }}
         run: |
-          set -e
-          curl -X POST $deploy_url || { echo 'Deployment failed'; exit 1; }
+          curl $deploy_url || { echo 'Deployment failed'; exit 1; }
 
       - name: Deployment successful
         if: success()
