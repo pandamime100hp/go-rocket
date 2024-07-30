@@ -1,7 +1,4 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: Node.js CI
+name: CI/CD
 
 on:
   push:
@@ -10,24 +7,27 @@ on:
     branches: [ "main" ]
 
 jobs:
-  check-changes:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v4
-        
-        - name: Set up paths filter
-          id: filter
-          uses: dorny/paths-filter@v2
-          with:
-            filters: |
-              client:
-                - 'client/**'
-              server:
-                - 'server/**'
+  check_changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up paths filter
+        id: filter
+        uses: dorny/paths-filter@v2
+        with:
+          filters: |
+            client:
+              - 'client/**'
+            server:
+              - 'server/**'
+    outputs:
+      client_changed: ${{ steps.filter.outputs.client }}
+      server_changed: ${{ steps.filter.outputs.server }}
 
-  build-client:
-    if: steps.filter.outputs.client == 'true'
+  build_client:
+    if: needs.check_changes.outputs.client_changed == 'true'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -54,8 +54,8 @@ jobs:
           name: client-build
           path: client/build
 
-  build-server:
-    if: steps.filter.outputs.server == 'true'
+  build_server:
+    if: needs.check_changes.outputs.server_changed == 'true'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -82,10 +82,10 @@ jobs:
           name: server-build
           path: server/build
 
-  deploy-client:
-    if: needs.build-client.outputs.client == 'true'
+  deploy_client:
+    if: needs.build_client.result == 'success'
     runs-on: ubuntu-latest
-    needs: build-client
+    needs: build_client
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -100,12 +100,12 @@ jobs:
         env:
           CLIENT_DEPLOY_URL: ${{ secrets.CLIENT_DEPLOY_URL }}
         run: |
-          curl -X POST $CLIENT_DEPLOY_URL -F "build=@client/build"
+          curl $CLIENT_DEPLOY_URL
 
-  deploy-server:
-    if: needs.build-server.outputs.server == 'true'
+  deploy_server:
+    if: needs.build_server.result == 'success'
     runs-on: ubuntu-latest
-    needs: build-server
+    needs: build_server
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -120,4 +120,4 @@ jobs:
         env:
           SERVER_DEPLOY_URL: ${{ secrets.SERVER_DEPLOY_URL }}
         run: |
-          curl -X POST $SERVER_DEPLOY_URL -F "build=@server/build"
+          curl $SERVER_DEPLOY_URL
