@@ -28,6 +28,7 @@ jobs:
 
   build_client:
     if: needs.check_changes.outputs.client_changed == 'true'
+    needs: check_changes
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -56,6 +57,7 @@ jobs:
 
   build_server:
     if: needs.check_changes.outputs.server_changed == 'true'
+    needs: check_changes
     runs-on: ubuntu-latest
     strategy:
       matrix:
