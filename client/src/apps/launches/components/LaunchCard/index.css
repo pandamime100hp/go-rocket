@@ -1,0 +1,11 @@
+.card {
+    margin: .5rem;
+    padding: .5rem;
+    width: 20rem;
+}
+.card img {
+    margin: .1rem;
+    min-height: 10rem;
+    padding: .1rem;
+    width: 20rem;
+}
