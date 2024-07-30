@@ -10,17 +10,30 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  check-changes:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+        
+        - name: Set up paths filter
+          id: filter
+          uses: dorny/paths-filter@v2
+          with:
+            filters: |
+              client:
+                - 'client/**'
+              server:
+                - 'server/**'
 
+  build-client:
+    if: steps.filter.outputs.client == 'true'
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Use Node.js ${{ matrix.node-version }}
@@ -29,29 +42,82 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install Client Dependencies
+        run: cd client && npm install
 
-      - name: Lint
-        run: npm run lint
+      - name: Build Client
+        run: cd client && npm run build
 
-      - name: Test
-        run: npm test
-      
-      - name: Build
-        run: npm run build
+      - name: Upload Client Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: client-build
+          path: client/build
 
-  deploy:
+  build-server:
+    if: steps.filter.outputs.server == 'true'
     runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/main'
-
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install Server Dependencies
+        run: cd server && npm install
+
+      - name: Build Server
+        run: cd server && npm run build
+
+      - name: Upload Server Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: server-build
+          path: server/build
+
+  deploy-client:
+    if: needs.build-client.outputs.client == 'true'
+    runs-on: ubuntu-latest
+    needs: build-client
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download Client Build Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: client-build
+          path: client/build
+
+      - name: Deploy Client
         env:
-          deploy_url: ${{ secrets.RENDER_DEPLOY_URL_HOOK }}
+          CLIENT_DEPLOY_URL: ${{ secrets.CLIENT_DEPLOY_URL }}
         run: |
-          curl $deploy_url
+          curl -X POST $CLIENT_DEPLOY_URL -F "build=@client/build"
+
+  deploy-server:
+    if: needs.build-server.outputs.server == 'true'
+    runs-on: ubuntu-latest
+    needs: build-server
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download Server Build Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: server-build
+          path: server/build
+
+      - name: Deploy Server
+        env:
+          SERVER_DEPLOY_URL: ${{ secrets.SERVER_DEPLOY_URL }}
+        run: |
+          curl -X POST $SERVER_DEPLOY_URL -F "build=@server/build"

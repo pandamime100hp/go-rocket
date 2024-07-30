@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Currently not supported\"",
-    "dev": "vite",
     "server": "nodemon server.js",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",

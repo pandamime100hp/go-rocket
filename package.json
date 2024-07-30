@@ -4,9 +4,12 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "build_server": "cd server && npm run build",
+    "build_client": "cd client && npm run build",
+    "run_server": "cd server && nodemon server.js",
+    "run_client": "cd client && vite",
     "test": "echo \"Currently not supported\"",
     "dev": "vite",
-    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
