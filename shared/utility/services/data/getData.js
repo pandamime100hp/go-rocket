@@ -1,5 +1,5 @@
 // AXIOS
-import axios from 'axios'
+import axios from "axios"
 
 export default function getData(url) {
     const response = axios.get(url).then(

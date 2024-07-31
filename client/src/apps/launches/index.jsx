@@ -5,10 +5,12 @@ import CardGallery from '../../components/CardGallery'
 import LaunchCard from './components/LaunchCard'
 
 // HOOKS
-import useGetData from '../../utility/hooks/useGetData'
+import useGetData from '../../../../shared/utility/hooks/useGetData'
+
+import process from 'process'
 
 export default function Launches() {
-    const url = import.meta.env.VITE_APP_BASE_URL
+    const url = import.meta.env.VITE_GO_ROCKET_BASE_URL || process.env.GO_ROCKET_BASE_URL
     const endpoint = `${url}/launches`
 
     const { data: launches, loading, error } = useGetData(endpoint)
