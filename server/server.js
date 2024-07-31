@@ -14,6 +14,7 @@ import dotenv from 'dotenv'
 
 // VARIABLES
 dotenv.config()
+console.log(process.env)
 const app = express()
 const port = process.env.PORT || 3000
 const baseApiUrl = process.env.SPACEX_BASE_API_URL
