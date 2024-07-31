@@ -15,9 +15,9 @@ import dotenv from 'dotenv'
 // VARIABLES
 dotenv.config()
 const app = express()
-const port = process.env.VITE_PORT || 3000
-const baseApiUrl = process.env.VITE_SPACEX_BASE_API_URL
-const baseApiVersion = process.env.VITE_SPACEX_BASE_API_VERSION
+const port = process.env.PORT || 3000
+const baseApiUrl = process.env.SPACEX_BASE_API_URL
+const baseApiVersion = process.env.SPACEX_BASE_API_VERSION
 const apiUrl = `${baseApiUrl}/${baseApiVersion}`
 
 // ENABLE MIDDLEWARE
