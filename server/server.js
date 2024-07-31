@@ -14,7 +14,6 @@ import dotenv from 'dotenv'
 
 // VARIABLES
 dotenv.config()
-console.log(process.env)
 const app = express()
 const port = process.env.PORT || 3000
 const baseApiUrl = process.env.SPACEX_BASE_API_URL || "https://api.spacexdata.com"
@@ -31,10 +30,13 @@ app.get('/', (req, res) => {
 
 // GET /launches
 app.get('/launches', async (req, res) => {
+    const endpoint = 'launches'
+
     console.log(apiUrl, 'GET /launches')
-    const launchesUrl = getEndpoint(apiUrl, 'launches')
+
+    const launchesUrl = getEndpoint(apiUrl, endpoint)
     const response = await getData(launchesUrl)
-    
+
     res.json(response)
 })
 
