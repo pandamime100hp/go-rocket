@@ -14,10 +14,11 @@ import dotenv from 'dotenv'
 
 // VARIABLES
 dotenv.config()
+console.log(process.env)
 const app = express()
-const port = process.env.VITE_PORT || 3000
-const baseApiUrl = process.env.VITE_SPACEX_BASE_API_URL
-const baseApiVersion = process.env.VITE_SPACEX_BASE_API_VERSION
+const port = process.env.PORT || 3000
+const baseApiUrl = process.env.SPACEX_BASE_API_URL || "https://api.spacexdata.com"
+const baseApiVersion = process.env.SPACEX_BASE_API_VERSION || "v4"
 const apiUrl = `${baseApiUrl}/${baseApiVersion}`
 
 // ENABLE MIDDLEWARE
@@ -30,10 +31,12 @@ app.get('/', (req, res) => {
 
 // GET /launches
 app.get('/launches', async (req, res) => {
+    console.log(apiUrl, 'GET /launches')
     const launchesUrl = getEndpoint(apiUrl, 'launches')
     const response = await getData(launchesUrl)
+    
     res.json(response)
 })
 
 // INITIALISE SERVER
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`Go-Rocket API is live!`))
