@@ -95,7 +95,7 @@ jobs:
       - name: Download Client Build Artifacts
         uses: actions/download-artifact@v3
         with:
-          name: client-build
+          name: client_build
           path: client/build
 
       - name: Deploy Client
@@ -115,7 +115,7 @@ jobs:
       - name: Download Server Build Artifacts
         uses: actions/download-artifact@v3
         with:
-          name: server-build
+          name: server_build
           path: server/build
 
       - name: Deploy Server
