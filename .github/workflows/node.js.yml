@@ -52,7 +52,7 @@ jobs:
       - name: Upload Client Build Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: client-build
+          name: client_build
           path: client/build
 
   build_server:
@@ -81,7 +81,7 @@ jobs:
       - name: Upload Server Build Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: server-build
+          name: server_build
           path: server/build
 
   deploy_client:
