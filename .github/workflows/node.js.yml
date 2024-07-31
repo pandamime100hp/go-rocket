@@ -75,14 +75,8 @@ jobs:
       - name: Install Server Dependencies
         run: cd server && npm install
 
-      - name: Build Server
-        run: cd server && npm run build
-
-      - name: Upload Server Build Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: server_build
-          path: server/dist
+      - name: Test Server
+        run: cd server && npm test
 
   deploy_client:
     if: needs.build_client.result == 'success'
@@ -112,14 +106,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Download Server Build Artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: server_build
-          path: server/dist
-
       - name: Deploy Server
         env:
           SERVER_DEPLOY_URL: ${{ secrets.SERVER_DEPLOY_URL }}
         run: |
-          curl -X POST $SERVER_DEPLOY_URL -F "artifact=@server/dist"
+          curl -X POST $SERVER_DEPLOY_URL -F "artifact=@server"
