@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: client_build
-          path: client/build
+          path: client/dist
 
   build_server:
     if: needs.check_changes.outputs.server_changed == 'true'
@@ -82,7 +82,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: server_build
-          path: server/build
+          path: server/dist
 
   deploy_client:
     if: needs.build_client.result == 'success'
@@ -96,13 +96,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: client_build
-          path: client/build
+          path: client/dist
 
       - name: Deploy Client
         env:
           CLIENT_DEPLOY_URL: ${{ secrets.CLIENT_DEPLOY_URL }}
         run: |
-          curl $CLIENT_DEPLOY_URL
+          curl -X POST $CLIENT_DEPLOY_URL -F "artifact=@client/dist"
 
   deploy_server:
     if: needs.build_server.result == 'success'
@@ -116,10 +116,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: server_build
-          path: server/build
+          path: server/dist
 
       - name: Deploy Server
         env:
           SERVER_DEPLOY_URL: ${{ secrets.SERVER_DEPLOY_URL }}
         run: |
-          curl $SERVER_DEPLOY_URL
+          curl -X POST $SERVER_DEPLOY_URL -F "artifact=@server/dist"
