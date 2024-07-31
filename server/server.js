@@ -34,6 +34,7 @@ app.get('/launches', async (req, res) => {
     console.log(apiUrl, 'GET /launches')
     const launchesUrl = getEndpoint(apiUrl, 'launches')
     const response = await getData(launchesUrl)
+    
     res.json(response)
 })
 
