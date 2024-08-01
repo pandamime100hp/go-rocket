@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 
 // UTILITY
-import getData from '../services/data/getData'
+import getData from '@shared/utility/services/data/getData.js';
 
 export default function useGetData(url) {
     const [data, setData] = useState([])
