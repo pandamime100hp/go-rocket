@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 
 // UTILITY
 import getData from '../utility/data/getData'
-import getEndpoint from '../../utility/url/getEndpoint'
+import getEndpoint from '../utility/url/getEndpoint'
 
 import process from 'process'
 
