@@ -1,0 +1,42 @@
+name: Execute unit and integrationtests
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  unit_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Client Dependencies
+        run: npm install
+
+      - name: Execute unit tests
+        run: npm run test
+
+  integration_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Client Dependencies
+        run: npm install
+
+      - name: Execute integration tests
+        run: npm run test
