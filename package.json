@@ -2,6 +2,7 @@
   "name": "go-rocket",
   "private": true,
   "version": "0.1.0",
+  "homepage": "https://go-rocket.onrender.com/",
   "type": "module",
   "scripts": {
     "test": "echo \"Currently not supported\"",
