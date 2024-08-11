@@ -1,7 +1,11 @@
+// REACT
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// APPS
+import Launches from './apps/launches'
+
 // COMPONENTS
-import Header from './components/Header'
-import Body from './components/Body'
-import Footer from './components/Footer'
+import Layout from './components/Layout'
 
 // CSS
 import './App.css'
@@ -9,10 +13,14 @@ import './App.css'
 function App() {
 
   return (
-    <>
-      <Header />
-      <Body />
-      <Footer />
+    <>      
+      <BrowserRouter>
+          <Routes>
+              <Route path = "/" element = {<Layout />}>
+                  <Route path = "/launches" element = {<Launches />}/>
+              </Route>
+          </Routes>
+      </BrowserRouter>
     </>
   )
 }
