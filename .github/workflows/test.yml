@@ -80,7 +80,9 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: ls files
-        run: ls -l
+        run: |
+            ls -l
+            ls -l src
 
       - name: Build Client
         run: npm run build
