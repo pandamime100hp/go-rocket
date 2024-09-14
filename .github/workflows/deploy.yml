@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build_client:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -29,13 +29,10 @@ jobs:
           name: build
           path: dist
 
-  deploy_client:
+  deploy:
     runs-on: ubuntu-latest
-    needs: build_client
+    needs: build
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Download Client Build Artifacts
         uses: actions/download-artifact@v3
         with:
@@ -45,4 +42,5 @@ jobs:
       - name: Deploy Client
         env:
           CLIENT_DEPLOY_URL: ${{ secrets.CLIENT_DEPLOY_URL }}
-        run: curl -X POST $CLIENT_DEPLOY_URL -F "artifact=@dist"
+        run: |
+          curl -X POST $CLIENT_DEPLOY_URL -F "artifact=@dist" --fail
