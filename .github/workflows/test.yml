@@ -79,6 +79,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: ls files
+        run: ls -l
+
       - name: Build Client
         run: npm run build
 
