@@ -5,40 +5,9 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'npm'
-
-      - name: Install Client Dependencies
-        run: npm install
-
-      - name: Build Client
-        run: npm run build
-
-      - name: Upload Client Build Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: build
-          path: dist
-
   deploy:
     runs-on: ubuntu-latest
-    needs: build
     steps:
-      - name: Download Client Build Artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: dist
-
       - name: Deploy Client
         env:
           CLIENT_DEPLOY_URL: ${{ secrets.CLIENT_DEPLOY_URL }}
