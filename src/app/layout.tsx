@@ -6,24 +6,29 @@ import type { Metadata } from 'next'
 
 // CSS
 import './index.css'
+
+// COMPONENTS
+import SiteLayout from '../components/SiteLayout'
  
 export const metadata: Metadata = {
   title: 'Go-Rocket',
   description: 'Exploring through data one of the most innovative and rapidly growing companies in in the world, SpaceX.',
 }
 
-interface LayoutProps {
+interface RootLayoutProps {
     children: React.ReactNode
 }
 
-const Layout: React.FC<LayoutProps> = ({children}) => {
+const RootLayout: React.FC<RootLayoutProps> = ({children}) => {
     return (
         <html lang="en">
           <body>
-            <div id="root">{children}</div>
+            <SiteLayout >
+              {children}
+            </ SiteLayout>
           </body>
         </html>
     )
   }
 
-  export default Layout
+  export default RootLayout

@@ -5,12 +5,11 @@ const Footer: React.FC = () => {
     return (
         <footer>
             <a
-                href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+                href="https://github.com/pandamime100hp/go-rocketp"
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                Powered by{' '}
-                <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
+                Pandamime100hp Github
             </a>
         </footer>
     )
