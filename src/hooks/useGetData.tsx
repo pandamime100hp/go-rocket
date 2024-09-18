@@ -21,7 +21,7 @@ const useGetData = (endpoint: string): DataState => {
         error: null
     })
 
-    const url = import.meta.env.VITE_GO_ROCKET_BASE_URL || process.env.GO_ROCKET_BASE_URL
+    const url = process.env.NEXT_PUBLIC_BASE_URL
 
     const urlEndpoint = getEndpoint(url, endpoint)
 
