@@ -12,4 +12,4 @@ jobs:
         env:
           CLIENT_DEPLOY_URL: ${{ secrets.CLIENT_DEPLOY_URL }}
         run: |
-          curl -X POST $CLIENT_DEPLOY_URL -F "artifact=@dist" --fail
+          curl -X POST $CLIENT_DEPLOY_URL --fail
