@@ -4,8 +4,6 @@
  * @param endpoint - The endpoint
  * @returns - An endpoint URL
  */
-const getEndpoint: Function = (url: string, endpoint: string) => {
+export default function getEndpoint(url: string, endpoint: string): string {
     return `${url.replace(/\/+$/, '')}/${endpoint.replace(/^\/+/, '')}`;
 }
-
-export default getEndpoint
