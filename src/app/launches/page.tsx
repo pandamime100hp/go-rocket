@@ -6,15 +6,18 @@ import { use } from 'react'
 import CardGallery from '../../components/CardGallery'
 import LaunchCard from './components/LaunchCard'
 
+// TYPES
+import { Launch } from './Launch'
+
 // Utility
 import getEndpoint from '../../utility/url/getEndpoint'
 import getData from '../../utility/data/getData'
 
 export default function Launches(): React.ReactNode {
-    const url = process.env.NEXT_PUBLIC_BASE_URL
-    const urlEndpoint = getEndpoint(url, 'launches')
+    const url: string = process.env.BASE_URL!
+    const urlEndpoint: string = getEndpoint(url, 'launches')
 
-    const launches = use(getData(urlEndpoint))
+    const launches: Launch[] = use(getData(urlEndpoint))
 
     return (
         <CardGallery data={launches} ItemComponent={LaunchCard} />
