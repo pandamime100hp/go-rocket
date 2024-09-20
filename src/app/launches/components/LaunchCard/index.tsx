@@ -9,7 +9,7 @@ import Overlay from '../../../../components/Overlay'
 import LaunchOverlay from '../LaunchOverlay'
 
 // TYPES
-import { Launch } from './Launch'
+import { Launch } from '../../Launch'
 
 // CSS
 import './index.css'

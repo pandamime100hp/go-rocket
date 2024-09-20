@@ -1,11 +1,14 @@
 // REACT
 import React from 'react'
 
+// Types
+import { Launch } from '../../Launch'
+
 // CSS
 import './index.css'
 
 interface LaunchOverlayProps {
-    item: any[]
+    item: Launch
     onClose: () => void
 }
 
@@ -19,7 +22,7 @@ const LaunchOverlay: React.FC<LaunchOverlayProps> = ({item, onClose}) => {
             </iframe>
             
             <h1 className="overlay__content title">{item.name}</h1>
-            <p className="overlay__content subtitle">{item.datetime_local}</p>
+            <p className="overlay__content subtitle">{item.date_local}</p>
             <p className="overlay__content description">{item.details}</p>
             
             <button onClick={onClose}>Close</button>
