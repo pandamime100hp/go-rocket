@@ -14,6 +14,6 @@ export default async function getData(url: string) {
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
-    throw new Error(`Request failed with status code ${error.response?.status || 500}`);
+    throw new Error(`Request failed with status code ${error.response?.status || 500}: ${error.message}`);
   }
 }
