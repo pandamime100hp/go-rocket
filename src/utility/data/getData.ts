@@ -1,5 +1,6 @@
 // src/data/getData.mjs
 import axios from 'axios';
+import { Launch } from '../../types/launches/Launch';
 
 /**
  * Fetches data from the given URL.
@@ -9,11 +10,11 @@ import axios from 'axios';
  */
 
 
-export default async function getData(url: string) {
+export default async function getData(url: string): Promise<Launch[]> {
   try {
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
-    throw new Error(`Request failed with status code ${error.response?.status || 500}`);
+    throw new Error(`Request failed with status code ${error.response?.status || 500}: ${error.message}`);
   }
 }
