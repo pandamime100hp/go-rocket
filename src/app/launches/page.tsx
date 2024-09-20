@@ -7,7 +7,7 @@ import CardGallery from '../../components/CardGallery'
 import LaunchCard from './components/LaunchCard'
 
 // TYPES
-import { Launch } from './Launch'
+import { Launch } from '../../types/launches/Launch'
 
 // Utility
 import getEndpoint from '../../utility/url/getEndpoint'
