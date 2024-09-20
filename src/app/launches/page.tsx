@@ -17,6 +17,8 @@ export default function Launches(): React.ReactNode {
     const url: string = process.env.BASE_URL!
     const urlEndpoint: string = getEndpoint(url, 'launches')
 
+    console.log(urlEndpoint)
+
     const launches: Launch[] = use(getData(urlEndpoint))
 
     return (
