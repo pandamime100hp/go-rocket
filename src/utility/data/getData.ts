@@ -9,7 +9,7 @@ import axios from 'axios';
  */
 
 
-const getData: Function = async (url: string) => {
+export default async function getData(url: string) {
   try {
     const response = await axios.get(url);
     return response.data;
@@ -17,5 +17,3 @@ const getData: Function = async (url: string) => {
     throw new Error(`Request failed with status code ${error.response?.status || 500}`);
   }
 }
-
-export default getData

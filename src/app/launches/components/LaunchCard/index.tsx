@@ -1,3 +1,5 @@
+"use client"
+
 // REACT
 import { useState } from 'react'
 import React from 'react'
