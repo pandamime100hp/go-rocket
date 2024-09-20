@@ -8,11 +8,14 @@ import React from 'react'
 import Overlay from '../../../../components/Overlay'
 import LaunchOverlay from '../LaunchOverlay'
 
+// TYPES
+import { Launch } from './Launch'
+
 // CSS
 import './index.css'
 
 interface LaunchCardProps {
-    item: any[]
+    item: Launch
 }
 
 const LaunchCard: React.FC<LaunchCardProps> = ({ item }) => {
