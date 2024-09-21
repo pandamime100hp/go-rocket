@@ -11,6 +11,12 @@ import LaunchOverlay from '../LaunchOverlay'
 // TYPES
 import { Launch } from '../../../../types/launches/Launch'
 
+// Next
+import Image from 'next/image'
+
+// Images
+import spacex_logo from '../../../../assets/spacex_default_logo.png'
+
 // CSS
 import './index.css'
 
@@ -33,8 +39,8 @@ const LaunchCard: React.FC<LaunchCardProps> = ({ item }) => {
     return (
         <>
             <div className="card">
-                <img src={item.links.patch.small} alt={item.name} />
-                <h1>{item.name}</h1>
+                <Image src={item.links.patch.large || spacex_logo} alt={item.name} width={300} height={300} />
+                <h2>{item.name}</h2>
                 <p>{item.date_utc}</p>
                 <button onClick={handleDisplayOverlay}>View Details</button>
             </div>

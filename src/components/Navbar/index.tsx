@@ -1,5 +1,10 @@
+
+// Next
 import Link from 'next/link'
  
+// CSS
+import './navbar.min.css'
+
 const Navbar: React.FC = () => {
   return (
     <ul>
