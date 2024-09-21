@@ -1,0 +1,20 @@
+ul {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+    margin-right: 1rem;
+    color: white;
+}
+
+ul li {
+    margin-left: 1rem;
+}
+
+ul li a:link, ul li a:visited{
+    color: white;
+}
+
+ul li a:hover, ul li a:active{
+    color: #cfcfcf;
+    text-decoration: none;
+}
