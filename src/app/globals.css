@@ -25,6 +25,24 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+a:link, a:visited{
+  color: white;
+}
+
+a:hover, a:active{
+  color: #cfcfcf;
+  text-decoration: none;
 }
 
 button {
@@ -57,4 +75,26 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.home {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.home__text {
+  place-items: center;
+  justify-content: stretch;
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  object-fit: fill;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
 }

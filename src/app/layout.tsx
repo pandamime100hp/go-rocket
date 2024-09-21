@@ -32,6 +32,9 @@ const RootLayout: React.FC<RootLayoutProps> = ({children}) => {
             <Header />
               {children}
             <Footer />
+            <video className="background-video" loop autoPlay muted preload='auto'>
+                <source src="/space.mp4" type="video/mp4" />
+            </video>
           </body>
         </html>
     )

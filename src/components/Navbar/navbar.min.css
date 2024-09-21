@@ -9,12 +9,3 @@ ul {
 ul li {
     margin-left: 1rem;
 }
-
-ul li a:link, ul li a:visited{
-    color: white;
-}
-
-ul li a:hover, ul li a:active{
-    color: #cfcfcf;
-    text-decoration: none;
-}
