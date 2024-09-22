@@ -1,8 +1,59 @@
-# React + Vite
+# Go Rocket
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website: https://go-rocket.onrender.com/
+Server: https://go-rocket-server-e2fm.onrender.com/
 
-Currently, two official plugins are available:
+Go Rocket is a hub for SpaceX's amazing achievements. It allows you to see all of SpaceX's launches, ships, pads and more. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setup
+
+Download the repository code and open a command prompt or terminal on the project root folder. Run the below code:
+
+```bash
+npm install && npm audit fix && npm run dev
+```
+
+## Testing
+
+With an open terminal or prompt, run the below command:
+
+```bash
+npm run test && npm run test:integration
+```
+
+## Building For Production
+
+To build the project to make it ready for production, execute the following command:
+
+```bash
+npm build
+```
+
+The command generates a `./dist` folder containing the built code. 
+
+## Features
+
+### Card Gallery
+
+### Card Overlays
+
+### Pagination
+
+### Search
+
+### UI
+
+## Design Decisions
+
+### Tailwind
+
+### Next JS
+
+### Typescript
+
+### Caching
+
+### CORS API Server
+
+## References
+
