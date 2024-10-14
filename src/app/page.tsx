@@ -2,7 +2,7 @@ const Home = () => {
   return (
     <div className="home">
       <h1>WELCOME TO GO ROCKET</h1>
-      <h2>INTEGRATING THE WORLD'S LARGEST LAUNCHES TO THOSE WHO CARE</h2>
+      <h2>INFORMING THE WORLD OF THE WORLDS MOST ADVANCED ROCKET COMPANY</h2>
       <div className="home__text">
         <p>
           This site was made to show case my brilliance in web development. 
