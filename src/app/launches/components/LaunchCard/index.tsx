@@ -30,9 +30,10 @@ const LaunchCard: React.FC<LaunchCardType> = ({ item }) => {
 
     const date: string = parseDate(item.date_utc)
 
+
     return (
         <>
-            <Card title={item.name} subtitle={"Launch Date:" + <br /> + `${date} UTC`} image={item.links.patch.large} imageAlt={item.name} handleDisplayOverlay={handleDisplayOverlay} />
+            <Card title={item.name} subtitle={`Launch Date: ${date} UTC`} image={item.links.patch.large} imageAlt={item.name} handleDisplayOverlay={handleDisplayOverlay} />
             {/* Makes sure we are using the Overlay styling which is globally scoped */}
             {isOverlayVisible && <Overlay item={item} ItemComponent={LaunchOverlay} onClose={handleHideOverlay} />}
         </>
