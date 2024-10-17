@@ -23,9 +23,16 @@ test('getData returns data when given a valid URL', async () => {
   expect(data).toHaveProperty('title', 'Test Todo');
 });
 
-test('getData throws an error when given an invalid URL', async () => {
+test('getData throws a 500 error is thrown', async () => {
   mock.onGet('https://jsonplaceholder.typicode.com/invalid').reply(500);
 
   const url = 'https://jsonplaceholder.typicode.com/invalid';
   await expect(getData(url)).rejects.toThrow('Request failed with status code 500');
+});
+
+test('getData returns a 404 error when given an invalid URL', async () => {
+  mock.onGet('https://jsonplaceholder.typicode.com/invalid').reply(404);
+
+  const url = 'https://jsonplaceholder.typicode.com/invalid';
+  await expect(getData(url)).rejects.toThrow('Request failed with status code 404');
 });
