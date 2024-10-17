@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Types
-import { Launch } from '../../../../types/launches/Launch'
+import { Launch } from '../../../../types/launches'
 
 // CSS
 import './index.css'
