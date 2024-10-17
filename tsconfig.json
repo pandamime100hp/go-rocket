@@ -31,7 +31,7 @@
     "**/*.tsx",
     "./dist/types/**/*.ts",
     ".next/types/**/*.ts"
-  ],
+, "__tests__/components/Card/index.test.tsx"  ],
   "exclude": [
     "node_modules"
   ]

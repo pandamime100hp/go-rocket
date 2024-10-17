@@ -1,7 +1,7 @@
 import { test, expect, beforeEach } from '@jest/globals';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import getData from '../../src/data/getData.mjs';
+import getData from '../../../src/utility/data/getData';
 
 // Initialize mock adapter
 const mock = new MockAdapter(axios);

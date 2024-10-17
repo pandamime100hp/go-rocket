@@ -1,4 +1,4 @@
-import getEndpoint from '../../src/url/getEndpoint.mjs'
+import getEndpoint from '../../../src/utility/url/getEndpoint';
 
 const expectedUrl = 'https://api.example.com/users';
 
