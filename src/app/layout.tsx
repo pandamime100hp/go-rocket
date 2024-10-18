@@ -10,6 +10,7 @@ import './globals.css'
 // COMPONENTS
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Background from '../components/Background'
  
 export const metadata: Metadata = {
   title: 'Go-Rocket',
@@ -29,12 +30,13 @@ const RootLayout: React.FC<RootLayoutProps> = ({children}) => {
             <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"/>
           </head>
           <body>
-            <Header />
-              {children}
-            <Footer />
-            <video className="background-video" loop autoPlay muted preload='auto'>
+              <Header />
+                {children}
+              <Footer />
+              <Background />
+            {/* <video className="background-video" loop autoPlay muted preload='auto'>
                 <source src="/space.mp4" type="video/mp4" />
-            </video>
+            </video> */}
           </body>
         </html>
     )
