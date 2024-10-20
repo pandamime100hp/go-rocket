@@ -8,6 +8,7 @@ class Space {
     starCount: number = 400;
     shootingStars: ShootingStar[] = [];
     shootingStarCount: number = 3;
+    shootingStarChance: number = 0.005; // Low chance for shooting star each frame
     width: number;
     height: number;
     context: CanvasRenderingContext2D;
@@ -54,10 +55,19 @@ class Space {
             star.draw(this.context);
         });
 
+            // Randomly add shooting stars
+        if (Math.random() < this.shootingStarChance) {
+            const shootingStar = new ShootingStar(this.width, this.height);
+            this.shootingStars.push(shootingStar);
+        }
+
         this.shootingStars.forEach(shootingStar => {
             shootingStar.update();
             shootingStar.draw(this.context);
         });
+
+        // Remove shooting stars that are no longer active
+        this.shootingStars = this.shootingStars.filter(star => star.active);
 
         requestAnimationFrame(this.animate);
     }
