@@ -1,31 +1,47 @@
 "use client"
 
-import React, { useEffect, useRef } from 'react'
-
-import { animate, initialise } from '../../utility/animation/space/space'
+import React, { useRef, useEffect } from 'react'
 
 // CSS
 import './index.css'
 
-const Background: React.FC = ({...props}) => {
-    const canvasRef = useRef(null)
-    
-    useEffect(() => {
-        const canvas = canvasRef.current
-        const context = canvas.getContext('2d')
-        //Our first draw
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
+// UTILITY
+import Canvas from '../../utility/animation/canvas'
+import Space from '../../utility/animation/space/space'
 
-        resizeCanvas();
-        initialise(canvas)
-        animate(context, canvas)
-      }, [animate])
+const Background: React.FC<React.CanvasHTMLAttributes<HTMLCanvasElement>> = ({...props}) => {
+    const canvasRef: React.RefObject<HTMLCanvasElement> = useRef<HTMLCanvasElement>(null);
+
+    useEffect(() => {
+        const canvas: HTMLCanvasElement = canvasRef.current!;
+        if (!canvas) return; 
+
+        const canvasInstance: Canvas = new Canvas(canvas);
+        const { width, height }: {width: number, height: number} = canvasInstance.canvasSize()
+        
+        let space: Space = new Space(canvasInstance.context, width, height)
+
+        const render = () => {
+            space.animate()
+        }
+        render()
+   
+        const handleResize = () => {
+            canvasInstance.resizeCanvas();
+            const { width, height }: {width: number, height: number} = canvasInstance.canvasSize();
+            space.resize(width, height);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            canvasInstance.cleanup(); // Remove event listeners
+            window.removeEventListener('resize', handleResize); // Clean up resize listener
+        };
+    }, []);
 
     return (
-        <canvas ref={canvasRef} {...props} />
+        <canvas ref={canvasRef} {...props} /> // Render the canvas in JSX
     )
 }
 

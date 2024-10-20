@@ -11,6 +11,7 @@ import './globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Background from '../components/Background'
+import Script from 'next/script'
  
 export const metadata: Metadata = {
   title: 'Go-Rocket',
@@ -23,22 +24,19 @@ interface RootLayoutProps {
 
 const RootLayout: React.FC<RootLayoutProps> = ({children}) => {
     return (
-        <html lang="en">
-          <head>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"/>
-          </head>
-          <body>
-              <Header />
-                {children}
-              <Footer />
-              <Background />
-            {/* <video className="background-video" loop autoPlay muted preload='auto'>
-                <source src="/space.mp4" type="video/mp4" />
-            </video> */}
-          </body>
-        </html>
+      <html lang="en">
+        <head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"/>
+        </head>
+        <body>
+          <Header />
+            {children}
+          <Footer />
+          <Background />
+        </body>
+      </html>
     )
   }
 

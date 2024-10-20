@@ -3,7 +3,9 @@ export interface SpaceObject{
     angle: number;
     x: number;
     y: number;
-    color: string;
+    color?: string;
+    size?: number;
 
     update(): void;
+    draw(context: CanvasRenderingContext2D): void;
 }
