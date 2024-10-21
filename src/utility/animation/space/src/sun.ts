@@ -6,7 +6,7 @@ export class Sun extends Star {
         super(canvasWidth, canvasHeight);
         this.radius = 0;
         this.angle = 0;
-        this.size = 10;
+        this.size = 30;
         this.speed = 0;
         this.color = 'rgba(255, 255, 255, 1)';
         this.isTwinkling = false;

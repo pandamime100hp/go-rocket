@@ -1,6 +1,6 @@
 import { Star } from "./generic/star";
 
-export default class ShootingStar extends Star {
+export class ShootingStar extends Star {
     length: number;
     speed: number;
     active: boolean;

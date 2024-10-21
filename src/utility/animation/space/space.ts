@@ -1,7 +1,8 @@
 import { Star } from "./src/generic/star";
-import Planet from "./src/planet";
-import ShootingStar from "./src/shooting_star";
 import { Sun } from "./src/sun";
+
+import { Planet } from "./src/planet";
+import { ShootingStar } from "./src/shooting_star";
 
 
 class Space {
@@ -62,6 +63,7 @@ class Space {
     }
 
     animate() {
+        // Clear the canvas and set the background color to black
         this.context.clearRect(0, 0, this.width, this.height);
         this.context.fillStyle = 'black';
         this.context.fillRect(0, 0, this.width, this.height);

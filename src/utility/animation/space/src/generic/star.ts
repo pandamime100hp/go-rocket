@@ -26,18 +26,22 @@ export class Star implements SpaceObject {
         this.centerX = this.canvasWidth / 2;
         this.centerY = this.canvasHeight / 2;
 
-        this.getPosition();
+        this.setPosition();
     }
 
-    getPosition(): void {
+    setPosition(): void {
         this.x = this.centerX + this.radius * Math.cos(this.angle);
         this.y = this.centerY + this.radius * Math.sin(this.angle);
+    }
+
+    getPosition(): { x: number, y: number } {
+        return { x: this.x, y: this.y };
     }
 
     update(): void {
         this.angle += this.speed;
 
-        this.getPosition();
+        this.setPosition();
 
         if (this.isTwinkling) {
             this.twinkleOpacity = 0.5 + Math.sin(Date.now() * this.twinkleSpeed) * 0.5;
