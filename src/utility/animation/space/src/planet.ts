@@ -1,4 +1,4 @@
-import { generateRandomName } from "../../../data/randomNameGenerator";
+import { getRandomName } from "../../../data/getRandomName";
 import { Rock } from "./generic/rock";
 import { Moon } from "./moon";
 
@@ -19,7 +19,7 @@ export class Planet extends Rock {
     constructor(canvasWidth: number, canvasHeight: number) {
         super(canvasWidth, canvasHeight);
 
-        this.planetIndex = generateRandomName();
+        this.planetIndex = getRandomName();
         
         const maxRadius = Math.max(this.canvasWidth, this.canvasHeight) * 0.7;
         this.radius = Math.random() * maxRadius

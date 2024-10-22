@@ -5,7 +5,7 @@ import { Planet } from "./src/planet";
 import { ShootingStar } from "./src/shooting_star";
 
 
-class Space {
+export class Space {
     stars: Star[] = [];
     starCount: number = 400;
     shootingStars: ShootingStar[] = [];
@@ -86,5 +86,3 @@ class Space {
         requestAnimationFrame(this.animate);
     }
 }
-
-export default Space

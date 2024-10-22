@@ -1,4 +1,4 @@
-class Canvas{
+export class Canvas {
     canvas: HTMLCanvasElement;
     context: CanvasRenderingContext2D;
     
@@ -31,5 +31,3 @@ class Canvas{
         window.removeEventListener('resize', this.resizeCanvas);
     }
 }
-
-export default Canvas

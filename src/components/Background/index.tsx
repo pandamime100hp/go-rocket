@@ -6,8 +6,8 @@ import React, { useRef, useEffect } from 'react'
 import './index.css'
 
 // UTILITY
-import Canvas from '../../utility/animation/canvas'
-import Space from '../../utility/animation/space/space'
+import { Canvas } from '../../utility/animation/canvas'
+import { Space } from '../../utility/animation/space/space'
 
 const Background: React.FC<React.CanvasHTMLAttributes<HTMLCanvasElement>> = ({...props}) => {
     const canvasRef: React.RefObject<HTMLCanvasElement> = useRef<HTMLCanvasElement>(null);
