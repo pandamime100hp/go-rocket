@@ -14,6 +14,7 @@
     "module": "esnext",
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "allowImportingTsExtensions": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -31,7 +32,7 @@
     "**/*.tsx",
     "./dist/types/**/*.ts",
     ".next/types/**/*.ts"
-, "__tests__/components/Card/index.test.tsx"  ],
+, "__tests__/components/Card/index.test.tsx", "src/utility/animation/space/src/generic/space_object.ts"  ],
   "exclude": [
     "node_modules"
   ]
