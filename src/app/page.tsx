@@ -14,8 +14,7 @@ const Home = () => {
           Just a quick note—this site is not affiliated with SpaceX in any way. 
         </p> 
         <p> If you're interested in how the site was made, the source code is 
-          available <a href="https://github.com/pandamime100hp/go-rocket">here</a> 
-          or by clicking on the small creature icon in the bottom-right corner of 
+          available <a href="https://github.com/pandamime100hp/go-rocket">here</a> or by clicking on the small creature icon in the bottom-right corner of 
           the page. Initially built with JavaScript, React, and Vite, this site 
           has undergone a major transformation. Thanks to the power of TypeScript, 
           Next.js, and React, it now operates more efficiently, smoothly, and, 
