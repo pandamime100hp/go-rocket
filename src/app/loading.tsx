@@ -1,10 +1,8 @@
 // REACT
 import React from 'react'
 
-const Loading: React.FC = () => {
+export default function Loading(): React.ReactElement {
     return (
         <div>Loading...</div>
     )
 }
-
-export default Loading

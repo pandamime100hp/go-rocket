@@ -8,7 +8,7 @@ import './footer.min.css'
 import { DiGithubBadge } from "react-icons/di";
 import { FaLinkedin } from "react-icons/fa";
 
-const Footer: React.FC = () => {
+export default function Footer(): React.ReactElement {
     const year: number = new Date().getFullYear()
 
     return (
@@ -34,5 +34,3 @@ const Footer: React.FC = () => {
         </footer>
     )
 }
-
-export default Footer

@@ -9,7 +9,7 @@ import './index.css'
 import { Canvas } from '../../utility/animation/canvas'
 import { Space } from '../../utility/animation/space/space'
 
-const Background: React.FC<React.CanvasHTMLAttributes<HTMLCanvasElement>> = ({...props}) => {
+export default function Background({...props}: any): React.ReactElement<React.CanvasHTMLAttributes<HTMLCanvasElement>> {
     const canvasRef: React.RefObject<HTMLCanvasElement> = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
@@ -44,5 +44,3 @@ const Background: React.FC<React.CanvasHTMLAttributes<HTMLCanvasElement>> = ({..
         <canvas ref={canvasRef} {...props} /> // Render the canvas in JSX
     )
 }
-
-export default Background

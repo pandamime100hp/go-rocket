@@ -1,5 +1,8 @@
+// REACT
 import React from 'react'
-import Image from 'next/image'
+
+// NEXT
+import Image, { StaticImageData } from 'next/image'
 
 // TYPES
 import { CardType } from '../../types/cards'
@@ -7,11 +10,11 @@ import { CardType } from '../../types/cards'
 // CSS
 import './index.css'
 
-// Images
+// IMAGES
 import spacex_logo from '../../assets/spacex_default_logo.png'
 
-const Card: React.FC<CardType> = ({ title, subtitle, image, imageAlt, handleDisplayOverlay, ...props }) => {
-    const imageSrc = image || spacex_logo
+export default function Card({ title, subtitle, image, imageAlt, handleDisplayOverlay, ...props }: CardType): React.ReactElement<CardType> {
+    const imageSrc: string | StaticImageData = image || spacex_logo
 
     return (
         <div className="card" {...props}>
@@ -22,5 +25,3 @@ const Card: React.FC<CardType> = ({ title, subtitle, image, imageAlt, handleDisp
         </div>
     )
 }
-
-export default Card
