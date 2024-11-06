@@ -14,9 +14,11 @@ import { LaunchCardType } from '../../../../types/launches'
 
 // CSS
 import './index.css'
+
+// UTILITY
 import parseDate from '../../../../utility/date/parseDate'
 
-const LaunchCard: React.FC<LaunchCardType> = ({ item }) => {
+export default function LaunchCard({ item }: LaunchCardType): React.ReactElement<LaunchCardType> {
     // Handles overlay visibility
     const [isOverlayVisible, setIsOverlayVisible] = useState(false)
 
@@ -50,5 +52,3 @@ const LaunchCard: React.FC<LaunchCardType> = ({ item }) => {
         </>
     )
 }
-
-export default LaunchCard

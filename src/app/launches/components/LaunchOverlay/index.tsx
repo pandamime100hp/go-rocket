@@ -1,18 +1,13 @@
 // REACT
 import React from 'react'
 
-// Types
-import { Launch } from '../../../../types/launches'
+// TYPES
+import { LaunchOverlayType } from '../../../../types/overlays'
 
 // CSS
 import './index.css'
 
-interface LaunchOverlayProps {
-    item: Launch
-    onClose: () => void
-}
-
-const LaunchOverlay: React.FC<LaunchOverlayProps> = ({item, onClose}) => {
+export default function LaunchOverlay({item, onClose}: LaunchOverlayType): React.ReactElement<LaunchOverlayType> {
     return (
         <div className="overlay__content">
             <iframe className='overlay__video'
@@ -29,5 +24,3 @@ const LaunchOverlay: React.FC<LaunchOverlayProps> = ({item, onClose}) => {
         </div>
     )
 }
-
-export default LaunchOverlay

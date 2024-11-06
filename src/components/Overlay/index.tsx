@@ -1,21 +1,17 @@
 // REACT
 import React from 'react'
 
+// TYPES
+import { OverlayType } from '../../types/overlays'
+
 // CSS
 import './index.css'
 
-type OverlayProps = {
-    item: any
-    ItemComponent: React.FC<any>
-    onClose: () => void
-}
 
-const Overlay: React.FC<OverlayProps> = ({item, ItemComponent, onClose}) => {
+export default function Overlay({item, ItemComponent, onClose}: OverlayType): React.ReactElement<OverlayType> {
     return (
         <div className="overlay">
             <ItemComponent item={item} onClose={onClose} />
         </div>
     )
 }
-
-export default Overlay

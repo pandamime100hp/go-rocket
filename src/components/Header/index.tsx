@@ -7,7 +7,7 @@ import Navbar from '../Navbar'
 // CSS
 import './header.min.css'
 
-const Header: React.FC = () => {
+export default function Header(): React.ReactElement {
     return (
         <header>
             <h1>G/R</h1>
@@ -15,5 +15,3 @@ const Header: React.FC = () => {
         </header>
     )
 }
-
-export default Header;

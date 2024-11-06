@@ -1,4 +1,4 @@
-export default function Home() {
+export default function Home(): React.ReactElement {
   return (
     <div className="home">
       <h1>WELCOME TO GO ROCKET</h1>

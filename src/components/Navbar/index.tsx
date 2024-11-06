@@ -5,7 +5,7 @@ import Link from 'next/link'
 // CSS
 import './navbar.min.css'
 
-const Navbar: React.FC = () => {
+export default function Navbar(): React.ReactElement {
   return (
     <ul>
       <li>
@@ -17,5 +17,3 @@ const Navbar: React.FC = () => {
     </ul>
   )
 }
- 
-export default Navbar
