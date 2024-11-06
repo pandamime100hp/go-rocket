@@ -12,10 +12,10 @@ const Footer: React.FC = () => {
     const year: number = new Date().getFullYear()
 
     return (
-        <footer className="container">
-            <p className="footer__content">Powered by Croissants</p>
-            <p className="footer__copyright">Copyright &copy; {year}. All rights reserved.</p>
-            <ul className="footer__socials">
+        <footer>
+            <p>Powered by Croissants</p>
+            <p>Copyright &copy; {year}. All rights reserved.</p>
+            <ul className="socials__ul">
                 <li>
                     <h1>
                         <a href="https://github.com/pandamime100hp/go-rocket">

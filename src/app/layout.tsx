@@ -32,7 +32,9 @@ const RootLayout: React.FC<RootLayoutProps> = ({children}) => {
         </head>
         <body>
           <Header />
-            {children}
+            <div className='page__content'>
+              {children}
+            </div>
           <Footer />
           <Background />
         </body>

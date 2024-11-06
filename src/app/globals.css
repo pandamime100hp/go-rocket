@@ -1,12 +1,11 @@
 :root {
-  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   font-family: "Rubik";
-  line-height: 1.5;
-  font-weight: 400;
+  --line-height: 1.5;
+  --font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --font-color: rgba(255, 255, 255, 0.87);
+  --background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,25 +15,66 @@
 
 /* Remove scrollbar */
 ::-webkit-scrollbar {
-  display: none;
+  width: 0px;
+  height: 0px;
 }
 
 body {
-  margin: 0;
   display: flex;
+  flex-direction: column;
+  color: var(--font-color);
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.page__content {
+  /* flex: 1; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home {
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(1px);
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.home__text {
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  color: white;
+  justify-content: stretch;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1;
+  line-height: var(--line-height);
+  font-weight: var(--font-weight);
+  font-size: 4vh;
+}
+
+h2 {
+  line-height: var(--line-height);
+  font-weight: var(--font-weight);
+  font-size: 3vh;
+}
+
+p {
+  line-height: var(--line-height);
+  font-weight: var(--font-weight);
+  font-size: 2vh;
 }
 
 a:link, a:visited{
-  color: white;
+  color: var(--font-color);
 }
 
 a:hover, a:active{
@@ -54,7 +94,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #c5c5c5;
 }
 button:focus,
 button:focus-visible {
@@ -67,35 +107,9 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #c5c5c5;
   }
   button {
     background-color: #f9f9f9;
   }
-}
-
-.home {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 0.5rem;
-  backdrop-filter: blur(1px);
-  padding: 1rem;
-}
-
-.home__text {
-  place-items: center;
-  justify-content: stretch;
-}
-
-.background-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  object-fit: fill;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
 }
