@@ -26,13 +26,9 @@ export default function Pagination({ data, ItemComponent }: PaginationType): Rea
             ))}
         </div> 
         <div>
-            <button onClick={goToPreviousPage} disabled={currentPage === 1}>
-                {'<'}
-            </button>
+            <button onClick={goToPreviousPage} disabled={currentPage === 1}>{'<'}</button>
             <span> Page {currentPage} of {totalPages} </span>
-            <button onClick={goToNextPage} disabled={currentPage === totalPages}>
-                {'>'}
-            </button>
+            <button onClick={goToNextPage} disabled={currentPage === totalPages}>{'>'}</button>
         </div>
     </>
   );
