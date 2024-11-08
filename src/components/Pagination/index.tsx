@@ -15,6 +15,14 @@ export default function Pagination({ data, ItemComponent }: PaginationType): Rea
 
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
+  if (data.length === 0) {
+    return (
+      <div>
+        <span> No data </span>
+      </div>
+    );
+  }
+
   const goToNextPage = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
   const goToPreviousPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
 
