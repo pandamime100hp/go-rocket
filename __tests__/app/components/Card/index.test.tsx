@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react';
-import Card from '../../../src/components/Card';
+import Card from '../../../../src/components/Card';
 
 // Generic test pattern is AAA: Arrange, Act, Assert
 
